@@ -38,6 +38,12 @@ flutter:
     - images/news1.png
     - images/news2.jpeg
     - images/news3.jpeg
+    - images/nasi.webp
+    - images/asi.png
+    - images/bubur_instan.png
+    - images/bubur.png
+    - images/biskuit.png
+    - images/cemilan.png
 
 
   # fonts:
