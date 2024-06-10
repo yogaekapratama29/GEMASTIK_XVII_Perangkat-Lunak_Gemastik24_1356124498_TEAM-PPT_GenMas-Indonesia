@@ -287,20 +287,22 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                 height: 20,
               ),
               Center(
-                  child: Container(
-                height: 50,
-                width: 360,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                        color: const Color.fromARGB(78, 178, 174, 174)),
-                    color: Color.fromARGB(248, 244, 114, 181)),
-                child: Center(
-                    child: Text(
-                  "Daftar",
-                  style: GoogleFonts.poppins(fontSize: 20, color: Colors.white),
-                )),
-              ))
+                child: Container(
+                  height: 50,margin: EdgeInsets.only(right: 10),
+                  width: 360,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                          color: const Color.fromARGB(78, 178, 174, 174)),
+                      color: Color.fromARGB(248, 244, 114, 181)),
+                  child: Center(
+                      child: Text(
+                    "Daftar",
+                    style:
+                        GoogleFonts.poppins(fontSize: 20, color: Colors.white),
+                  )),
+                ),
+              ),Container(height: 50,)
             ],
           ),
         ],
