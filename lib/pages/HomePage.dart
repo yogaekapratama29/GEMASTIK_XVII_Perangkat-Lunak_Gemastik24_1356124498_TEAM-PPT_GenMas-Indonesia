@@ -139,8 +139,8 @@ class _HomepageState extends State<Homepage> {
                                   margin: EdgeInsets.only(left: 30),
                                   height: 60,
                                   width: 60,
-                                  color:
-                                      const Color.fromARGB(255, 255, 255, 255),
+                                  decoration: BoxDecoration(color:
+                                      const Color.fromARGB(255, 255, 255, 255),borderRadius: BorderRadius.circular(10)),
                                   child: Icon(
                                     MdiIcons.calculator,
                                     color: Color.fromARGB(248, 244, 114, 181),
@@ -160,7 +160,8 @@ class _HomepageState extends State<Homepage> {
                                 child: Container(
                                   height: 60,
                                   width: 60,
-                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  decoration: BoxDecoration(color:
+                                      const Color.fromARGB(255, 255, 255, 255),borderRadius: BorderRadius.circular(10)),
                                   child: Icon(
                                     MdiIcons.mapOutline,
                                     color: Color.fromARGB(248, 244, 114, 181),
@@ -181,8 +182,8 @@ class _HomepageState extends State<Homepage> {
                                   margin: EdgeInsets.only(right: 30),
                                   height: 60,
                                   width: 60,
-                                  color:
-                                      const Color.fromARGB(255, 255, 255, 255),
+                                 decoration: BoxDecoration(color:
+                                      const Color.fromARGB(255, 255, 255, 255),borderRadius: BorderRadius.circular(10)),
                                   child: Icon(
                                     MdiIcons.faceAgent,
                                     color: Color.fromARGB(248, 244, 114, 181),
