@@ -1,3 +1,10 @@
+import 'package:aplikasi_wisata/pages/Main_Features/CalculatorGizi.dart';
+import 'package:aplikasi_wisata/pages/Main_Features/Pusat_Bantuan.dart';
+import 'package:aplikasi_wisata/pages/Menu/Akun.dart';
+import 'package:aplikasi_wisata/pages/Main_Features/FormPendaftaran.dart';
+import 'package:aplikasi_wisata/pages/Menu/Rekap.dart';
+import 'package:aplikasi_wisata/pages/Menu/Tambah_anak.dart';
+import 'package:aplikasi_wisata/pages/Menu/newspage.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,30 +30,60 @@ class _HomepageState extends State<Homepage> {
             print(index);
           },
           items: [
-            Icon(
-              Icons.home,
-              color: const Color.fromARGB(255, 255, 255, 255),
-              size: 40,
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Homepage()));
+              },
+              child: Icon(
+                Icons.home,
+                color: const Color.fromARGB(255, 255, 255, 255),
+                size: 40,
+              ),
             ),
-            Icon(
-              Icons.newspaper_outlined,
-              color: const Color.fromARGB(255, 255, 255, 255),
-              size: 40,
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Newspage()));
+              },
+              child: Icon(
+                Icons.newspaper_outlined,
+                color: const Color.fromARGB(255, 255, 255, 255),
+                size: 40,
+              ),
             ),
-            Icon(
-              MdiIcons.plusCircle,
-              color: const Color.fromARGB(255, 255, 255, 255),
-              size: 50,
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TambahAnak()));
+              },
+              child: Icon(
+                MdiIcons.plusCircle,
+                color: const Color.fromARGB(255, 255, 255, 255),
+                size: 50,
+              ),
             ),
-            Icon(
-              Icons.history,
-              color: const Color.fromARGB(255, 255, 255, 255),
-              size: 40,
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Rekap()));
+              },
+              child: Icon(
+                Icons.history,
+                color: const Color.fromARGB(255, 255, 255, 255),
+                size: 40,
+              ),
             ),
-            Icon(
-              Icons.person,
-              color: const Color.fromARGB(255, 255, 255, 255),
-              size: 40,
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Akun()));
+              },
+              child: Icon(
+                Icons.person,
+                color: const Color.fromARGB(255, 255, 255, 255),
+                size: 40,
+              ),
             )
           ]),
       body: Stack(
@@ -84,44 +121,73 @@ class _HomepageState extends State<Homepage> {
                         Container(
                           margin: EdgeInsets.only(top: 50, left: 20),
                           height: 120,
-                          width: 350,
+                          width: 360,
                           decoration: BoxDecoration(
                               color: Color.fromARGB(255, 244, 114, 181),
                               borderRadius: BorderRadius.circular(8)),
                           child: Row(
                             children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 30),
-                                height: 60,
-                                width: 60,
-                                color: const Color.fromARGB(255, 255, 255, 255),
-                                child: Icon(
-                                  MdiIcons.calculator,
-                                  color: Color.fromARGB(248, 244, 114, 181),
-                                  size: 60,
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              Calculatorgizi()));
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.only(left: 30),
+                                  height: 60,
+                                  width: 60,
+                                  color:
+                                      const Color.fromARGB(255, 255, 255, 255),
+                                  child: Icon(
+                                    MdiIcons.calculator,
+                                    color: Color.fromARGB(248, 244, 114, 181),
+                                    size: 60,
+                                  ),
                                 ),
                               ),
                               Spacer(),
-                              Container(
-                                height: 60,
-                                width: 60,
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                child: Icon(
-                                  MdiIcons.mapOutline,
-                                  color: Color.fromARGB(248, 244, 114, 181),
-                                  size: 60,
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              Formpendaftaran()));
+                                },
+                                child: Container(
+                                  height: 60,
+                                  width: 60,
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  child: Icon(
+                                    MdiIcons.mapOutline,
+                                    color: Color.fromARGB(248, 244, 114, 181),
+                                    size: 60,
+                                  ),
                                 ),
                               ),
                               Spacer(),
-                              Container(
-                                margin: EdgeInsets.only(right: 30),
-                                height: 60,
-                                width: 60,
-                                color: const Color.fromARGB(255, 255, 255, 255),
-                                child: Icon(
-                                  MdiIcons.faceAgent,
-                                  color: Color.fromARGB(248, 244, 114, 181),
-                                  size: 60,
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              PusatBantuan()));
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.only(right: 30),
+                                  height: 60,
+                                  width: 60,
+                                  color:
+                                      const Color.fromARGB(255, 255, 255, 255),
+                                  child: Icon(
+                                    MdiIcons.faceAgent,
+                                    color: Color.fromARGB(248, 244, 114, 181),
+                                    size: 60,
+                                  ),
                                 ),
                               ),
                             ],
@@ -138,7 +204,7 @@ class _HomepageState extends State<Homepage> {
                         //Kontainer Inti
                         Container(
                           margin: EdgeInsets.only(top: 20, left: 20),
-                          width: 175,
+                          width: 180,
                           height: 380,
                           decoration: BoxDecoration(
                               color: Color.fromARGB(255, 244, 114, 181),
@@ -202,7 +268,8 @@ class _HomepageState extends State<Homepage> {
                                         color:
                                             Color.fromARGB(255, 255, 255, 255),
                                         borderRadius:
-                                            BorderRadius.circular(50)), child: Icon(
+                                            BorderRadius.circular(50)),
+                                    child: Icon(
                                       MdiIcons.ruler,
                                       color: Color.fromARGB(248, 244, 114, 181),
                                       size: 25,
@@ -231,7 +298,8 @@ class _HomepageState extends State<Homepage> {
                                         color: const Color.fromARGB(
                                             255, 255, 255, 255),
                                         borderRadius:
-                                            BorderRadius.circular(50)), child: Icon(
+                                            BorderRadius.circular(50)),
+                                    child: Icon(
                                       MdiIcons.babyFaceOutline,
                                       color: Color.fromARGB(248, 244, 114, 181),
                                       size: 25,
@@ -279,7 +347,7 @@ class _HomepageState extends State<Homepage> {
                         // Section untuk gambar ini beda grid
                         Container(
                           margin: EdgeInsets.only(top: 20),
-                          width: 175,
+                          width: 180,
                           height: 380,
                           decoration: BoxDecoration(
                             color: Color.fromARGB(255, 244, 114, 181),

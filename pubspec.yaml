@@ -35,6 +35,9 @@ flutter:
     - images/onboarding1.png
     - images/onboarding2.png
     - images/Baby.png
+    - images/news1.png
+    - images/news2.jpeg
+    - images/news3.jpeg
 
 
   # fonts:
