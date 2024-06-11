@@ -21,6 +21,27 @@ class TambahAnak extends StatefulWidget {
 }
 
 class _TambahAnakState extends State<TambahAnak> {
+
+int _selectedIndex = 2;
+  
+  final List<Widget> _pages = [
+    Homepage(),
+    Newspage(),
+    TambahAnak(),
+    Rekap(),
+    Akun(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => _pages[index]),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,64 +49,35 @@ class _TambahAnakState extends State<TambahAnak> {
           height: 75.0,
           backgroundColor: Color.fromARGB(248, 255, 255, 255),
           color: Color.fromARGB(248, 244, 114, 181),
-          animationDuration: Duration(milliseconds: 250),
-          onTap: (index) {},
+          animationDuration: Duration(milliseconds: 300),
+          index: _selectedIndex,
+          onTap: _onItemTapped,
           items: [
-            InkWell(
-              onTap: () {
-                Navigator.pop(context,
-                    MaterialPageRoute(builder: (context) => Homepage()));
-              },
-              child: Icon(
-                Icons.home,
-                color: const Color.fromARGB(255, 255, 255, 255),
-                size: 40,
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Newspage()));
-              },
-              child: Icon(
-                Icons.newspaper_outlined,
-                color: const Color.fromARGB(255, 255, 255, 255),
-                size: 40,
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TambahAnak()));
-              },
-              child: Icon(
-                MdiIcons.plusCircle,
-                color: const Color.fromARGB(255, 255, 255, 255),
-                size: 50,
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Rekap()));
-              },
-              child: Icon(
-                Icons.history,
-                color: const Color.fromARGB(255, 255, 255, 255),
-                size: 40,
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Akun()));
-              },
-              child: Icon(
-                Icons.person,
-                color: const Color.fromARGB(255, 255, 255, 255),
-                size: 40,
-              ),
-            )
+             Icon(
+            Icons.home,
+            color: _selectedIndex == 0 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
+            size: 40,
+          ),
+          Icon(
+            Icons.newspaper_outlined,
+            color: _selectedIndex == 1 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
+            size: 40,
+          ),
+          Icon(
+            MdiIcons.plusCircle,
+            color: _selectedIndex == 2 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
+            size: 50,
+          ),
+          Icon(
+            Icons.history,
+            color: _selectedIndex == 3 ? Color.fromARGB(255, 255, 255, 255) : Colors.white,
+            size: 40,
+          ),
+          Icon(
+            Icons.person,
+            color: _selectedIndex == 4 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
+            size: 40,
+          ),
           ]),
       appBar: AppBar(),
       body: Column(

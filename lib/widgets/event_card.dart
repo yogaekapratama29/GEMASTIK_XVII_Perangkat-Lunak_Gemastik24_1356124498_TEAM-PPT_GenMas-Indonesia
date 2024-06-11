@@ -7,11 +7,12 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(25),
-      padding: EdgeInsets.all(25),
+    return Container( 
+      margin: EdgeInsets.only(left: 10,top: 65),
+      padding: EdgeInsets.only(right: 20,left: 2),
       decoration: BoxDecoration(
-          color:isPast ? Colors.deepPurple.shade300 : Colors.deepPurple.shade100,
+          // color: Colors.deepPurple,
+          // color:isPast ? Colors.deepPurple.shade300 : Colors.deepPurple.shade100,
           borderRadius: BorderRadius.circular(8)),
       child: child,
     );

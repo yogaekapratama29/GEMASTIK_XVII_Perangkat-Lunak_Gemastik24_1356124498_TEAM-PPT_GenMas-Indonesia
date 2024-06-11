@@ -16,27 +16,29 @@ class MyTimelineTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // Jarak antara Events
-      height: 200,
-      child: TimelineTile(
-        isFirst: isFirst,
-        isLast: isLast,
-
-        // dekorasi line nya
-        beforeLineStyle: LineStyle(
-            color: isPast ? Colors.deepPurple : Colors.deepPurple.shade100),
-        indicatorStyle: IndicatorStyle(
-          width: 40,
-          color: isPast ? Colors.deepPurple : Colors.deepPurple.shade100,
-          iconStyle: IconStyle(
-              iconData: Icons.done,
-              color: isLast ? Colors.white : Colors.deepPurple.shade100),
-        ),
-        // event card
-        endChild: EventCard(
-          isPast: isPast,
-          child: eventCard,
+    return Container(margin: EdgeInsets.only(left: 5),
+      child: SizedBox(
+        // Jarak antara Events
+        height: 170,
+        child: TimelineTile(
+          isFirst: isFirst,
+          isLast: isLast,
+      
+          // dekorasi line nya
+          beforeLineStyle: LineStyle(
+              color: Color.fromARGB(248, 244, 114, 181)),
+          indicatorStyle: IndicatorStyle(
+            width: 40,
+            color:  Color.fromARGB(248, 244, 114, 181),
+            iconStyle: IconStyle(
+                iconData: Icons.done,
+                color: const Color.fromARGB(255, 255, 255, 255)),
+          ),
+          // event card
+          endChild: EventCard(
+            isPast: isPast,
+            child: eventCard,
+          ),
         ),
       ),
     );
