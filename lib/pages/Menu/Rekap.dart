@@ -1,3 +1,4 @@
+import 'package:aplikasi_wisata/widgets/timeline_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:aplikasi_wisata/pages/HomePage.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:timeline_tile/timeline_tile.dart';
 
 class Rekap extends StatefulWidget {
   const Rekap({super.key});
@@ -23,13 +25,13 @@ class Rekap extends StatefulWidget {
 class _RekapState extends State<Rekap> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(      bottomNavigationBar: CurvedNavigationBar(
+    return Scaffold(
+      bottomNavigationBar: CurvedNavigationBar(
           height: 75.0,
           backgroundColor: Color.fromARGB(248, 255, 255, 255),
           color: Color.fromARGB(248, 244, 114, 181),
           animationDuration: Duration(milliseconds: 250),
-          onTap: (index) {
-          },
+          onTap: (index) {},
           items: [
             InkWell(
               onTap: () {
@@ -86,6 +88,21 @@ class _RekapState extends State<Rekap> {
                 size: 40,
               ),
             )
-          ]),appBar: AppBar(),);
+          ]),
+      appBar: AppBar(),
+      body: ListView(
+        children: [
+          // start timeline
+        MyTimelineTile(isFirst: true, isLast: false, isPast: false,eventCard: Text("Order Placed"),),
+
+          // midlle timeline
+        MyTimelineTile(isFirst: false, isLast: false, isPast: true,eventCard: Text("Order Shipped"),),
+
+          // end timeline
+        MyTimelineTile(isFirst: false, isLast: true, isPast: false,eventCard: Text("Order Deliver"),)
+        
+        ],
+      ),
+    );
   }
 }

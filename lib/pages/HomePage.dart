@@ -12,15 +12,19 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
+  
 
   @override
   State<Homepage> createState() => _HomepageState();
 }
 
+
+
+
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       bottomNavigationBar: CurvedNavigationBar(
           height: 75.0,
           backgroundColor: Color.fromARGB(248, 255, 255, 255),
