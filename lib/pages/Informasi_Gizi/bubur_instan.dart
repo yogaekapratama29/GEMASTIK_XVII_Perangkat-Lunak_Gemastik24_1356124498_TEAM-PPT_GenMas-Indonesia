@@ -12,7 +12,10 @@ class _BuburInstanState extends State<BuburInstan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text(
+          "Informasi Nilai Gizi",
+          style: GoogleFonts.poppins(fontSize: 25, fontWeight: FontWeight.w500),
+        ),),
       body: Stack(
         children: [
           ListView(

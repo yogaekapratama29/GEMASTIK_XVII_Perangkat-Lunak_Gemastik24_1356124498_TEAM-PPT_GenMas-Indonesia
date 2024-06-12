@@ -12,7 +12,13 @@ class _NasiState extends State<Nasi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+
+      appBar: AppBar(
+        title: Text(
+          "Informasi Nilai Gizi",
+          style: GoogleFonts.poppins(fontSize: 25, fontWeight: FontWeight.w500),
+        ),
+      ),
       body: Stack(
         children: [
           ListView(
@@ -56,7 +62,9 @@ class _NasiState extends State<Nasi> {
                     height: 20,
                   ),
                   Container(
-                    margin: EdgeInsets.only( right: 40),
+  
+
+                    margin: EdgeInsets.only(right: 40),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -157,3 +165,4 @@ class _NasiState extends State<Nasi> {
 
   }
 }
+  

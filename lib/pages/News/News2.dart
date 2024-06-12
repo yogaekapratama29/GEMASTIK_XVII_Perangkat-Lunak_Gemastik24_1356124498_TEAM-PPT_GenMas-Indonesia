@@ -13,7 +13,10 @@ class _News2State extends State<News2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text(
+          "News",
+          style: GoogleFonts.poppins(fontSize: 28, fontWeight: FontWeight.w500),
+        ),),
       body: Stack(
         children: [
           ListView(
