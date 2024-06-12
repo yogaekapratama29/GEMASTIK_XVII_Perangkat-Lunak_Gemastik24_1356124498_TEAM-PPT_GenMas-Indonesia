@@ -16,10 +16,10 @@ class MyTimelineTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(margin: EdgeInsets.only(left: 5),
+    return Container(margin: EdgeInsets.only(left: 5,right: 5),
       child: SizedBox(
         // Jarak antara Events
-        height: 170,
+        height: 150,
         child: TimelineTile(
           isFirst: isFirst,
           isLast: isLast,

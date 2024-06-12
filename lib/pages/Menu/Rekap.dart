@@ -85,7 +85,7 @@ int _selectedIndex = 3;
       body: ListView(
         children: [
           Container(
-            margin: EdgeInsets.only(left: 20, top: 20),
+            margin: EdgeInsets.only(left: 20, top: 20,bottom: 20),
             child: Text(
               "Rekapitulasi",
               style: GoogleFonts.poppins(

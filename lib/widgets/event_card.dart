@@ -2,19 +2,27 @@ import 'package:flutter/material.dart';
 
 class EventCard extends StatelessWidget {
   final bool isPast;
-  final child;
-  const EventCard({super.key, required this.isPast, required this.child});
+  final Widget child;
+
+  const EventCard({
+    super.key,
+    required this.isPast,
+    required this.child,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container( 
-      margin: EdgeInsets.only(left: 10,top: 65),
-      padding: EdgeInsets.only(right: 20,left: 2),
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 4,horizontal: 4), // Mengurangi margin atas dan bawah
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8), // Mengurangi padding keseluruhan
       decoration: BoxDecoration(
-          // color: Colors.deepPurple,
-          // color:isPast ? Colors.deepPurple.shade300 : Colors.deepPurple.shade100,
-          borderRadius: BorderRadius.circular(8)),
-      child: child,
+        color:  Color.fromARGB(255, 252, 202, 243),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: child,
+      ),
     );
   }
 }
