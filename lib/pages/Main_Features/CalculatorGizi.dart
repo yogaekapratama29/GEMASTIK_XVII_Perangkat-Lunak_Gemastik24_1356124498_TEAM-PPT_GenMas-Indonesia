@@ -1,4 +1,10 @@
 import 'package:aplikasi_wisata/pages/HomePage.dart';
+import 'package:aplikasi_wisata/pages/Informasi_Gizi/asi.dart';
+import 'package:aplikasi_wisata/pages/Informasi_Gizi/biskuit.dart';
+import 'package:aplikasi_wisata/pages/Informasi_Gizi/bubur_beras.dart';
+import 'package:aplikasi_wisata/pages/Informasi_Gizi/bubur_instan.dart';
+import 'package:aplikasi_wisata/pages/Informasi_Gizi/cemilan.dart';
+import 'package:aplikasi_wisata/pages/Informasi_Gizi/nasi.dart';
 import 'package:flutter/material.dart';
 import 'package:aplikasi_wisata/pages/Main_Features/CalculatorGizi.dart';
 import 'package:aplikasi_wisata/pages/Main_Features/Pusat_Bantuan.dart';
@@ -100,7 +106,7 @@ class _CalculatorgiziState extends State<Calculatorgizi> {
                   Container(
                     width: 360,
                     height: 50,
-                    margin: EdgeInsets.only(left: 20),
+                    margin: EdgeInsets.only(left: 15),
                     decoration: BoxDecoration(
                         color: Color.fromARGB(248, 244, 114, 181),
                         borderRadius: BorderRadius.circular(8)),
@@ -129,62 +135,79 @@ class _CalculatorgiziState extends State<Calculatorgizi> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        width: 165,
-                        height: 143,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("images/nasi.webp"),
-                                fit: BoxFit.cover),
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              width: 165,
-                              height: 35,
-                              color: Color.fromARGB(248, 244, 114, 181),
-                              child: Container(padding: EdgeInsets.only(left: 10,top: 5),
-                                  child: Text(
-                                "Nasi",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              )),
-                            )
-                          ],
-                        ),
+                      InkWell( onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Nasi(),
+                          ),
+                        );},
+                        child: Row(children: [
+                        Container(
+                          width: 165,
+                          height: 143,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("images/nasi.webp"),
+                                  fit: BoxFit.cover),
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                width: 165,
+                                height: 35,
+                                color: Color.fromARGB(248, 244, 114, 181),
+                                child: Container(padding: EdgeInsets.only(left: 10,top: 5),
+                                    child: Text(
+                                  "Nasi",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                )),
+                              )
+                            ],
+                          ),
+                        ),]),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        width: 165,
-                        height: 143,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("images/asi.png"),
-                                fit: BoxFit.cover),
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              width: 165,
-                              height: 35,
-                              color: Color.fromARGB(248, 244, 114, 181),
-                              child: Container(padding: EdgeInsets.only(left: 10,top: 5),
-                                  child: Text(
-                                "Asi",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              )),
-                            )
-                          ],
-                        ),
+                    InkWell( onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Asi(),
+                          ),
+                        );},
+                        child: Row(children: [
+                        Container(
+                          width: 165,
+                          height: 143,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("images/asi.png"),
+                                  fit: BoxFit.cover),
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                width: 165,
+                                height: 35,
+                                color: Color.fromARGB(248, 244, 114, 181),
+                                child: Container(padding: EdgeInsets.only(left: 10,top: 5),
+                                    child: Text(
+                                  "Asi",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                )),
+                              )
+                            ],
+                          ),
+                        ),]),
                       ),
                     ],
                   ),
@@ -192,65 +215,82 @@ class _CalculatorgiziState extends State<Calculatorgizi> {
                     height: 20,
                   ),
                   // Section 2
-                  Row(
+                                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                     Container(
-                        width: 165,
-                        height: 143,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("images/bubur_instan.png"),
-                                fit: BoxFit.cover),
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              width: 165,
-                              height: 35,
-                              color: Color.fromARGB(248, 244, 114, 181),
-                              child: Container(padding: EdgeInsets.only(left: 10,top: 5),
-                                  child: Text(
-                                "Bubur Instan",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              )),
-                            )
-                          ],
-                        ),
+                      InkWell( onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BuburInstan(),
+                          ),
+                        );},
+                        child: Row(children: [
+                        Container(
+                          width: 165,
+                          height: 143,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("images/bubur_instan.png"),
+                                  fit: BoxFit.cover),
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                width: 165,
+                                height: 35,
+                                color: Color.fromARGB(248, 244, 114, 181),
+                                child: Container(padding: EdgeInsets.only(left: 10,top: 5),
+                                    child: Text(
+                                  "Bubur Instan",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                )),
+                              )
+                            ],
+                          ),
+                        ),]),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        width: 165,
-                        height: 143,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("images/bubur.png"),
-                                fit: BoxFit.cover),
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              width: 165,
-                              height: 35,
-                              color: Color.fromARGB(248, 244, 114, 181),
-                              child: Container(padding: EdgeInsets.only(left: 10,top: 5),
-                                  child: Text(
-                                "Bubur Beras",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              )),
-                            )
-                          ],
-                        ),
+                    InkWell( onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BuburBeras(),
+                          ),
+                        );},
+                        child: Row(children: [
+                        Container(
+                          width: 165,
+                          height: 143,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("images/bubur.png"),
+                                  fit: BoxFit.cover),
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                width: 165,
+                                height: 35,
+                                color: Color.fromARGB(248, 244, 114, 181),
+                                child: Container(padding: EdgeInsets.only(left: 10,top: 5),
+                                    child: Text(
+                                  "Bubur Beras",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                )),
+                              )
+                            ],
+                          ),
+                        ),]),
                       ),
                     ],
                   ),
@@ -261,62 +301,79 @@ class _CalculatorgiziState extends State<Calculatorgizi> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        width: 165,
-                        height: 143,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("images/biskuit.png"),
-                                fit: BoxFit.cover),
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              width: 165,
-                              height: 35,
-                              color: Color.fromARGB(248, 244, 114, 181),
-                              child: Container(padding: EdgeInsets.only(left: 10,top: 5),
-                                  child: Text(
-                                "Biskuit",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              )),
-                            )
-                          ],
-                        ),
+                      InkWell( onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Biskuit(),
+                          ),
+                        );},
+                        child: Row(children: [
+                        Container(
+                          width: 165,
+                          height: 143,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("images/biskuit.png"),
+                                  fit: BoxFit.cover),
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                width: 165,
+                                height: 35,
+                                color: Color.fromARGB(248, 244, 114, 181),
+                                child: Container(padding: EdgeInsets.only(left: 10,top: 5),
+                                    child: Text(
+                                  "Biskuit",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                )),
+                              )
+                            ],
+                          ),
+                        ),]),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        width: 165,
-                        height: 143,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("images/cemilan.png"),
-                                fit: BoxFit.cover),
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              width: 165,
-                              height: 35,
-                              color: Color.fromARGB(248, 244, 114, 181),
-                              child: Container(padding: EdgeInsets.only(left: 10,top: 5),
-                                  child: Text(
-                                "Cemilan",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              )),
-                            )
-                          ],
-                        ),
+                    InkWell( onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Cemilan(),
+                          ),
+                        );},
+                        child: Row(children: [
+                        Container(
+                          width: 165,
+                          height: 143,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("images/cemilan.png"),
+                                  fit: BoxFit.cover),
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                width: 165,
+                                height: 35,
+                                color: Color.fromARGB(248, 244, 114, 181),
+                                child: Container(padding: EdgeInsets.only(left: 10,top: 5),
+                                    child: Text(
+                                  "Cemilan",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                )),
+                              )
+                            ],
+                          ),
+                        ),]),
                       ),
                     ],
                   ),

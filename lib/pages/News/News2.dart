@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class News1 extends StatefulWidget {
-  const News1({super.key});
+
+class News2 extends StatefulWidget {
+  const News2({super.key});
 
   @override
-  State<News1> createState() => _News1State();
+  State<News2> createState() => _News2State();
 }
 
-class _News1State extends State<News1> {
+class _News2State extends State<News2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,7 @@ class _News1State extends State<News1> {
                         color: Colors.black12,
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                            image: AssetImage("images/news1.png"),
+                            image: AssetImage("images/news2.jpeg"),
                             fit: BoxFit.cover)),
                   ),
                   SizedBox(
@@ -38,7 +39,7 @@ class _News1State extends State<News1> {
                   Container(
                     margin: EdgeInsets.only(left: 20, right: 20),
                     child: Text(
-                      "Bagaimana Pengobatan Dan Pencegahan Stunting",
+                      "Edukasi Calon Pengantin Secara Offline Lebih Efektif untuk Pencegahan Balita Stunting",
                       textAlign: TextAlign.justify,
                       style: GoogleFonts.poppins(
                           fontSize: 20, fontWeight: FontWeight.w600),

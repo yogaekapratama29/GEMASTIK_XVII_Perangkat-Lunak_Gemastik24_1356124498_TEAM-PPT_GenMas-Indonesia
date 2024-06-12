@@ -1,3 +1,6 @@
+import 'package:aplikasi_wisata/pages/News/News1.dart';
+import 'package:aplikasi_wisata/pages/News/News2.dart';
+import 'package:aplikasi_wisata/pages/News/News3.dart';
 import 'package:flutter/material.dart';
 import 'package:aplikasi_wisata/pages/HomePage.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +24,8 @@ class Newspage extends StatefulWidget {
 }
 
 class _NewspageState extends State<Newspage> {
+  int _selectedIndex = 1;
 
-int _selectedIndex = 1;
-  
   final List<Widget> _pages = [
     Homepage(),
     Newspage(),
@@ -45,7 +47,7 @@ int _selectedIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
- bottomNavigationBar: CurvedNavigationBar(
+      bottomNavigationBar: CurvedNavigationBar(
           height: 75.0,
           backgroundColor: Color.fromARGB(248, 255, 255, 255),
           color: Color.fromARGB(248, 244, 114, 181),
@@ -53,31 +55,41 @@ int _selectedIndex = 1;
           index: _selectedIndex,
           onTap: _onItemTapped,
           items: [
-             Icon(
-            Icons.home,
-            color: _selectedIndex == 0 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            Icons.newspaper_outlined,
-            color: _selectedIndex == 1 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            MdiIcons.plusCircle,
-            color: _selectedIndex == 2 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 50,
-          ),
-          Icon(
-            Icons.history,
-            color: _selectedIndex == 3 ? Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            Icons.person,
-            color: _selectedIndex == 4 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
+            Icon(
+              Icons.home,
+              color: _selectedIndex == 0
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              Icons.newspaper_outlined,
+              color: _selectedIndex == 1
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              MdiIcons.plusCircle,
+              color: _selectedIndex == 2
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 50,
+            ),
+            Icon(
+              Icons.history,
+              color: _selectedIndex == 3
+                  ? Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              Icons.person,
+              color: _selectedIndex == 4
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
           ]),
       appBar: AppBar(
         title: Text(
@@ -93,74 +105,116 @@ int _selectedIndex = 1;
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 10, bottom: 2),
-                      width: 320,
-                      height: 200,
-                      decoration: BoxDecoration(
-                          color: Colors.black12,
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                              image: AssetImage("images/news1.png"),
-                              fit: BoxFit.cover)),
-                    ),
-                    Container(
-                      width: 320,
-                      child: Text(
-                        "Bagaimana Pengobatan Dan Pencegahan Stunting",
-                        textAlign: TextAlign.justify,
-                        style: GoogleFonts.poppins(
-                            fontSize: 16, fontWeight: FontWeight.w500),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => News1(),
+                          ),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 10, bottom: 2),
+                            width: 320,
+                            height: 200,
+                            decoration: BoxDecoration(
+                                color: Colors.black12,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: AssetImage("images/news1.png"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          Container(
+                            width: 320,
+                            child: Text(
+                              "Bagaimana Pengobatan Dan Pencegahan Stunting",
+                              textAlign: TextAlign.justify,
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16, fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(
                       height: 10,
                     ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10, bottom: 2),
-                      width: 320,
-                      height: 200,
-                      decoration: BoxDecoration(
-                          color: Colors.black12,
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                              image: AssetImage("images/news2.jpeg"),
-                              fit: BoxFit.cover)),
-                    ),
-                    Container(
-                      width: 320,
-                      child: Text(
-                        "Edukasi Calon Pengantin Secara Offline Lebih Efektif untuk Pencegahan Balita Stunting",
-                        textAlign: TextAlign.justify,
-                        style: GoogleFonts.poppins(
-                            fontSize: 16, fontWeight: FontWeight.w500),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => News2(),
+                          ),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 10, bottom: 2),
+                            width: 320,
+                            height: 200,
+                            decoration: BoxDecoration(
+                                color: Colors.black12,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: AssetImage("images/news2.jpeg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          Container(
+                            width: 320,
+                            child: Text(
+                              "Edukasi Calon Pengantin Secara Offline Lebih Efektif untuk Pencegahan Balita Stunting",
+                              textAlign: TextAlign.justify,
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16, fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(
                       height: 10,
                     ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10, bottom: 2),
-                      width: 320,
-                      height: 200,
-                      decoration: BoxDecoration(
-                          color: Colors.black12,
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                              image: AssetImage("images/news3.jpeg"),
-                              fit: BoxFit.cover)),
-                    ),
-                    Container(
-                      width: 320,
-                      child: Text(
-                        "Cegah Pernikahan Dini Hindari Dari Stunting, BKKBN Sosialisasikan pada MTsN 5 HST",
-                        textAlign: TextAlign.justify,
-                        style: GoogleFonts.poppins(
-                            fontSize: 16, fontWeight: FontWeight.w500),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => News3(),
+                          ),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 10, bottom: 2),
+                            width: 320,
+                            height: 200,
+                            decoration: BoxDecoration(
+                                color: Colors.black12,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: AssetImage("images/news3.jpeg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          Container(
+                            width: 320,
+                            child: Text(
+                              "Cegah Pernikahan Dini Hindari Dari Stunting, BKKBN Sosialisasikan pada MTsN 5 HST",
+                              textAlign: TextAlign.justify,
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16, fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                   ],
                 )
