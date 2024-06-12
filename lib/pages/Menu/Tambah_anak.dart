@@ -1,3 +1,4 @@
+import 'package:aplikasi_wisata/flush%20bar/flush.dart';
 import 'package:flutter/material.dart';
 import 'package:aplikasi_wisata/pages/HomePage.dart';
 import 'package:flutter/material.dart';
@@ -27,10 +28,8 @@ class _TambahAnakState extends State<TambahAnak> {
   final tambahTTLController = TextEditingController();
   final tambahNamaIbuController = TextEditingController();
 
+  int _selectedIndex = 2;
 
-
-int _selectedIndex = 2;
-  
   final List<Widget> _pages = [
     Homepage(),
     Newspage(),
@@ -60,34 +59,45 @@ int _selectedIndex = 2;
           index: _selectedIndex,
           onTap: _onItemTapped,
           items: [
-             Icon(
-            Icons.home,
-            color: _selectedIndex == 0 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            Icons.newspaper_outlined,
-            color: _selectedIndex == 1 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            MdiIcons.plusCircle,
-            color: _selectedIndex == 2 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 50,
-          ),
-          Icon(
-            Icons.history,
-            color: _selectedIndex == 3 ? Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            Icons.person,
-            color: _selectedIndex == 4 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
+            Icon(
+              Icons.home,
+              color: _selectedIndex == 0
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              Icons.newspaper_outlined,
+              color: _selectedIndex == 1
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              MdiIcons.plusCircle,
+              color: _selectedIndex == 2
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 50,
+            ),
+            Icon(
+              Icons.history,
+              color: _selectedIndex == 3
+                  ? Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              Icons.person,
+              color: _selectedIndex == 4
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
           ]),
       appBar: AppBar(),
-      body: Form(key: _formState,
+      body: Form(
+        key: _formState,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -103,137 +113,145 @@ int _selectedIndex = 2;
               height: 30,
             ),
             Container(
-                  width: 360,
-                  height: 50,
-                  margin: EdgeInsets.only(left: 20),
-                  child: TextFormField(
-                    controller: tambahNikController,
-                    validator: (value) {
-                      if (value == "") {
-                        return "Text tidak boleh kosong";
-                      }
-                    },
-                    decoration: InputDecoration(
-                        labelStyle: TextStyle(
-                          color: const Color.fromARGB(186, 158, 158, 158),
-                        ),
-                        labelText: "Masukan NIK",
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                              color: const Color.fromARGB(78, 178, 174, 174),
-                              width: 2),
-                        )),
-                  ),
-                ),
+              width: 360,
+              height: 50,
+              margin: EdgeInsets.only(left: 20),
+              child: TextFormField(
+                controller: tambahNikController,
+                validator: (value) {
+                  if (value == "") {
+                    return "Text tidak boleh kosong";
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    labelStyle: TextStyle(
+                      color: const Color.fromARGB(186, 158, 158, 158),
+                    ),
+                    labelText: "Masukan NIK",
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                          color: const Color.fromARGB(78, 178, 174, 174),
+                          width: 2),
+                    )),
+              ),
+            ),
             SizedBox(
               height: 20,
             ),
-           Container(
-                  width: 360,
-                  height: 50,
-                  margin: EdgeInsets.only(left: 20),
-                  child: TextFormField(
-                    controller: tambahNamaAnakController,
-                    validator: (value) {
-                      if (value == "") {
-                        return "Text tidak boleh kosong";
-                      }
-                    },
-                    decoration: InputDecoration(
-                        labelStyle: TextStyle(
-                          color: const Color.fromARGB(186, 158, 158, 158),
-                        ),
-                        labelText: "Masukan Nama Anak",
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                              color: const Color.fromARGB(78, 178, 174, 174),
-                              width: 2),
-                        )),
-                  ),
-                ),
+            Container(
+              width: 360,
+              height: 50,
+              margin: EdgeInsets.only(left: 20),
+              child: TextFormField(
+                controller: tambahNamaAnakController,
+                validator: (value) {
+                  if (value == "") {
+                    return "Text tidak boleh kosong";
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    labelStyle: TextStyle(
+                      color: const Color.fromARGB(186, 158, 158, 158),
+                    ),
+                    labelText: "Masukan Nama Anak",
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                          color: const Color.fromARGB(78, 178, 174, 174),
+                          width: 2),
+                    )),
+              ),
+            ),
             SizedBox(
               height: 20,
             ),
-Container(
-                  width: 360,
-                  height: 50,
-                  margin: EdgeInsets.only(left: 20),
-                  child: TextFormField(
-                    controller: tambahTTLController,
-                    validator: (value) {
-                      if (value == "") {
-                        return "Text tidak boleh kosong";
-                      }
-                    },
-                    decoration: InputDecoration(
-                        labelStyle: TextStyle(
-                          color: const Color.fromARGB(186, 158, 158, 158),
-                        ),
-                        labelText: "Tempat,Tanggal Lahir",
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                              color: const Color.fromARGB(78, 178, 174, 174),
-                              width: 2),
-                        )),
-                  ),
-                ),
+            Container(
+              width: 360,
+              height: 50,
+              margin: EdgeInsets.only(left: 20),
+              child: TextFormField(
+                controller: tambahTTLController,
+                validator: (value) {
+                  if (value == "") {
+                    return "Text tidak boleh kosong";
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    labelStyle: TextStyle(
+                      color: const Color.fromARGB(186, 158, 158, 158),
+                    ),
+                    labelText: "Tempat,Tanggal Lahir",
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                          color: const Color.fromARGB(78, 178, 174, 174),
+                          width: 2),
+                    )),
+              ),
+            ),
             SizedBox(
               height: 20,
             ),
-Container(
-                  width: 360,
-                  height: 50,
-                  margin: EdgeInsets.only(left: 20),
-                  child: TextFormField(
-                    controller: tambahNamaIbuController,
-                    validator: (value) {
-                      if (value == "") {
-                        return "Text tidak boleh kosong";
-                      }
-                    },
-                    decoration: InputDecoration(
-                        labelStyle: TextStyle(
-                          color: const Color.fromARGB(186, 158, 158, 158),
-                        ),
-                        labelText: "Masukan Nama Ibu",
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                              color: const Color.fromARGB(78, 178, 174, 174),
-                              width: 2),
-                        )),
-                  ),
-                ),
+            Container(
+              width: 360,
+              height: 50,
+              margin: EdgeInsets.only(left: 20),
+              child: TextFormField(
+                controller: tambahNamaIbuController,
+                validator: (value) {
+                  if (value == "") {
+                    return "Text tidak boleh kosong";
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    labelStyle: TextStyle(
+                      color: const Color.fromARGB(186, 158, 158, 158),
+                    ),
+                    labelText: "Masukan Nama Ibu",
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                          color: const Color.fromARGB(78, 178, 174, 174),
+                          width: 2),
+                    )),
+              ),
+            ),
             SizedBox(
               height: 20,
             ),
             Center(
-                  child: SizedBox(
-                    width: 360,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(
-                              248,
-                              244,
-                              114,
-                              181,
-                            ),
-                            foregroundColor: Colors.white),
-                        onPressed: () {
-                          if (_formState.currentState!.validate()) {
-                            // Do something
-                            print("validation succses");
-                          } else {}
-                        },
-                        child: Text(
-                          "Tambahkan",
-                          style: GoogleFonts.poppins(fontSize: 20,fontWeight: FontWeight.w500),
-                        )),
-                  ),
-                ),
+              child: SizedBox(
+                width: 360,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromARGB(
+                          248,
+                          244,
+                          114,
+                          181,
+                        ),
+                        foregroundColor: Colors.white),
+                    onPressed: () {
+                      if (_formState.currentState!.validate()) {
+                        // Tampilkan pesan berhasil jika semua input valid
+                        Flush.showFlushBar(context, "Berhasil", "Data berhasil ditambahkan", Colors.green);
+                      } else {
+                        // Tampilkan pesan kesalahan jika ada input yang tidak valid
+                        Flush.showFlushBar(context, "Gagal", "Mohon isi semua kolom", Colors.red);
+                      }
+                    },
+                    child: Text(
+                      "Tambahkan",
+                      style: GoogleFonts.poppins(
+                          fontSize: 20, fontWeight: FontWeight.w500),
+                    )),
+              ),
+            ),
           ],
         ),
       ),

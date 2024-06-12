@@ -17,6 +17,10 @@ dependencies:
   like_button : ^2.0.5
   material_design_icons_flutter: ^7.0.7296
   timeline_tile: ^2.0.0
+  another_flushbar: ^1.12.30
+  fluttertoast: ^8.2.6
+  image_picker: ^1.1.2
+  image_cropper: ^7.0.4
   
 
 

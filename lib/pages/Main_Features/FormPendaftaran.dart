@@ -11,6 +11,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:aplikasi_wisata/flush%20bar/flush.dart';
 
 class Formpendaftaran extends StatefulWidget {
   const Formpendaftaran({super.key});
@@ -129,6 +130,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                       if (value == "") {
                         return "Text tidak boleh kosong";
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                         labelStyle: TextStyle(
@@ -156,6 +158,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                       if (value == "") {
                         return "Text tidak boleh kosong";
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                         labelStyle: TextStyle(
@@ -183,6 +186,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                       if (value == "") {
                         return "Text tidak boleh kosong";
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                         labelStyle: TextStyle(
@@ -210,6 +214,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                       if (value == "") {
                         return "Text tidak boleh kosong";
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                         labelStyle: TextStyle(
@@ -237,6 +242,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                       if (value == "") {
                         return "Text tidak boleh kosong";
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                         labelStyle: TextStyle(
@@ -264,6 +270,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                       if (value == "") {
                         return "Text tidak boleh kosong";
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                         labelStyle: TextStyle(
@@ -291,6 +298,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                       if (value == "") {
                         return "Text tidak boleh kosong";
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                         labelStyle: TextStyle(
@@ -318,6 +326,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                       if (value == "") {
                         return "Text tidak boleh kosong";
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                         labelStyle: TextStyle(
@@ -345,6 +354,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                       if (value == "") {
                         return "Text tidak boleh kosong";
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                         labelStyle: TextStyle(
@@ -376,13 +386,17 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                             foregroundColor: Colors.white),
                         onPressed: () {
                           if (_formState.currentState!.validate()) {
-                            // Do something
-                            print("validation succses");
-                          } else {}
+                            // Tampilkan pesan berhasil jika semua input valid
+                            Flush.showFlushBar(context, "Berhasil", "Data berhasil ditambahkan", Colors.green);
+                          } else {
+                            // Tampilkan pesan kesalahan jika ada input yang tidak valid
+                            Flush.showFlushBar(context, "Gagal", "Mohon isi semua kolom", Colors.red);
+                          }
                         },
                         child: Text(
                           "Daftar",
-                          style: GoogleFonts.poppins(fontSize: 20,fontWeight: FontWeight.w500),
+                          style: GoogleFonts.poppins(
+                              fontSize: 20, fontWeight: FontWeight.w500),
                         )),
                   ),
                 ),
