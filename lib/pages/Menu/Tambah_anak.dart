@@ -35,7 +35,7 @@ class _TambahAnakState extends State<TambahAnak> {
     Newspage(),
     TambahAnak(),
     Rekap(),
-    Akun(),
+    Akun(initials: "AK",),
   ];
 
   void _onItemTapped(int index) {

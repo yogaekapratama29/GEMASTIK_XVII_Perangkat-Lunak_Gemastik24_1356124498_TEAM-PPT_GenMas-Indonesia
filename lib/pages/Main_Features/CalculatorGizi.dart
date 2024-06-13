@@ -34,7 +34,7 @@ class _CalculatorgiziState extends State<Calculatorgizi> {
     Newspage(),
     TambahAnak(),
     Rekap(),
-    Akun(),
+    Akun(initials: "AK",),
   ];
 
   void _onItemTapped(int index) {
@@ -106,7 +106,7 @@ class _CalculatorgiziState extends State<Calculatorgizi> {
                   Container(
                     width: 360,
                     height: 50,
-                    margin: EdgeInsets.only(left: 15),
+                    margin: EdgeInsets.only(left: 25),
                     decoration: BoxDecoration(
                         color: Color.fromARGB(248, 244, 114, 181),
                         borderRadius: BorderRadius.circular(8)),

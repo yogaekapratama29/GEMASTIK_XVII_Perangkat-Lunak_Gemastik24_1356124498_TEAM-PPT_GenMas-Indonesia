@@ -41,7 +41,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
     Newspage(),
     TambahAnak(),
     Rekap(),
-    Akun(),
+    Akun(initials: "AK",),
   ];
 
   void _onItemTapped(int index) {

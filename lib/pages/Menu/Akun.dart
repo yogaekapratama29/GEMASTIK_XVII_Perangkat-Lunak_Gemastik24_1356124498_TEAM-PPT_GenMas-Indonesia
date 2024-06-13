@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:aplikasi_wisata/image_picker/image_helper.dart';
+import 'package:aplikasi_wisata/pages/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:aplikasi_wisata/pages/HomePage.dart';
 import 'package:flutter/material.dart';
@@ -14,22 +18,31 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Akun extends StatefulWidget {
-  const Akun({super.key});
+  const Akun({
+    super.key,
+    required this.initials,
+  });
+
+  final String initials;
 
   @override
   State<Akun> createState() => _AkunState();
 }
 
 class _AkunState extends State<Akun> {
+// untuk file image
+  File? _image;
 
-int _selectedIndex = 4;
-  
+  int _selectedIndex = 4;
+
   final List<Widget> _pages = [
     Homepage(),
     Newspage(),
     TambahAnak(),
     Rekap(),
-    Akun(),
+    Akun(
+      initials: "AK",
+    ),
   ];
 
   void _onItemTapped(int index) {
@@ -53,31 +66,41 @@ int _selectedIndex = 4;
           index: _selectedIndex,
           onTap: _onItemTapped,
           items: [
-             Icon(
-            Icons.home,
-            color: _selectedIndex == 0 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            Icons.newspaper_outlined,
-            color: _selectedIndex == 1 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            MdiIcons.plusCircle,
-            color: _selectedIndex == 2 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 50,
-          ),
-          Icon(
-            Icons.history,
-            color: _selectedIndex == 3 ? Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            Icons.person,
-            color: _selectedIndex == 4 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
+            Icon(
+              Icons.home,
+              color: _selectedIndex == 0
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              Icons.newspaper_outlined,
+              color: _selectedIndex == 1
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              MdiIcons.plusCircle,
+              color: _selectedIndex == 2
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 50,
+            ),
+            Icon(
+              Icons.history,
+              color: _selectedIndex == 3
+                  ? Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              Icons.person,
+              color: _selectedIndex == 4
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
           ]),
       appBar: AppBar(),
       body: Stack(
@@ -100,14 +123,44 @@ int _selectedIndex = 4;
                       height: 30,
                     ),
                     Center(
-                      child: Container(
-                        width: 150,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(248, 244, 114, 181),
-                            borderRadius: BorderRadius.circular(100)),
-                      ),
+                        child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: CircleAvatar(
+                          backgroundColor: Colors.grey.shade300,
+                          radius: 64,
+                          backgroundImage:
+                              _image != null ? FileImage(_image!) : null,
+                          foregroundImage:
+                              _image != null ? FileImage(_image!) : null,
+                          child: _image != null
+                              ? Text(
+                                  widget.initials,
+                                  style: TextStyle(fontSize: 48),
+                                )
+                              : null),
+                    )),
+                    SizedBox(
+                      height: 16,
                     ),
+                    TextButton(
+                      onPressed: () async {
+                        final imageHelper =
+                            ImageHelper(); // Buat instance ImageHelper
+                        final files = await imageHelper.pickImage();
+                        // Panggil metode pickImage
+                        if (files != null) {
+                          setState(() {
+                            _image = File(files.path);
+                          });
+                        }
+                      },
+                      child: Center(
+                          child: Text(
+                        "Select Photo",
+                        style: TextStyle(color: Colors.black),
+                      )),
+                    ),
+
                     SizedBox(
                       height: 20,
                     ),
@@ -243,21 +296,69 @@ int _selectedIndex = 4;
                     ),
                     // Log Out
                     Center(
-                      child: Container(
-                        height: 50,
-                        margin: EdgeInsets.only(right: 10),
-                        width: 360,
-                        decoration: BoxDecoration(
+                      child: InkWell(
+                        onTap: () {
+                          final snackBar = SnackBar(
+                            content: Text('Do you really want to exit?'),
+                            action: SnackBarAction(
+                              label: 'Yes',
+                              onPressed: () {
+                                // Show a confirmation dialog
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: Text('Confirm Exit'),
+                                      content: Text(
+                                          'Are you sure you want to exit?'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context)
+                                                .pop(); // Close the dialog
+                                          },
+                                          child: Text('No'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context)
+                                                .pop(); // Close the dialog
+                                            Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Onboardingscreen()),
+                                            );
+                                          },
+                                          child: Text('Yes'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        },
+                        child: Container(
+                          height: 50,
+                          margin: EdgeInsets.only(right: 10),
+                          width: 360,
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
                                 color: const Color.fromARGB(78, 178, 174, 174)),
-                            color: Color.fromARGB(255, 220, 38, 38)),
-                        child: Center(
+                            color: Color.fromARGB(255, 220, 38, 38),
+                          ),
+                          child: Center(
                             child: Text(
-                          "Keluar",
-                          style: GoogleFonts.poppins(
-                              fontSize: 20, color: Colors.white),
-                        )),
+                              "Keluar",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 20, color: Colors.white),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(

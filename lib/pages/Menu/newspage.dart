@@ -31,7 +31,7 @@ class _NewspageState extends State<Newspage> {
     Newspage(),
     TambahAnak(),
     Rekap(),
-    Akun(),
+    Akun(initials: "AK",),
   ];
 
   void _onItemTapped(int index) {

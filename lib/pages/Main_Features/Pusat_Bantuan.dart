@@ -29,7 +29,7 @@ class _PusatBantuanState extends State<PusatBantuan> {
     Newspage(),
     TambahAnak(),
     Rekap(),
-    Akun(),
+    Akun(initials: "AK",),
   ];
 
   void _onItemTapped(int index) {

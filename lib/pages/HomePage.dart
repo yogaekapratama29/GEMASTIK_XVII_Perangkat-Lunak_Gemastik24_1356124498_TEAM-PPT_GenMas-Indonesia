@@ -27,7 +27,7 @@ class _HomepageState extends State<Homepage> {
     Newspage(),
     TambahAnak(),
     Rekap(),
-    Akun(),
+    Akun(initials: "AK",),
   ];
 
   void _onItemTapped(int index) {
@@ -97,14 +97,15 @@ class _HomepageState extends State<Homepage> {
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             )),
                         Spacer(),
-                        Container(
-                          margin: EdgeInsets.only(right: 20, top: 20),
-                          height: 60,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(248, 244, 114, 181),
-                              borderRadius: BorderRadius.circular(50)),
-                        ),
+                         Container(margin: EdgeInsets.only(right: 20,top: 20),
+                           child: FittedBox(
+                                                 fit: BoxFit.contain,
+                                                 child: CircleAvatar(
+                            backgroundColor: Colors.grey.shade300,
+                            radius: 35,
+                                                 )
+                                               ),
+                         ),
                       ],
                     ),
                     // Menu Section
