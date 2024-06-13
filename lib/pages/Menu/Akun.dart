@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:aplikasi_wisata/Profile%20Provider/profile_provider.dart';
 import 'package:aplikasi_wisata/image_picker/image_helper.dart';
 import 'package:aplikasi_wisata/pages/onboarding_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:provider/provider.dart';
 
 class Akun extends StatefulWidget {
   const Akun({
@@ -57,6 +59,7 @@ class _AkunState extends State<Akun> {
 
   @override
   Widget build(BuildContext context) {
+    final profileProvider = Provider.of<ProfileProvider>(context);
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
           height: 75.0,
@@ -123,44 +126,72 @@ class _AkunState extends State<Akun> {
                       height: 30,
                     ),
                     Center(
-                        child: FittedBox(
-                      fit: BoxFit.contain,
-                      child: CircleAvatar(
-                          backgroundColor: Colors.grey.shade300,
-                          radius: 64,
-                          backgroundImage:
-                              _image != null ? FileImage(_image!) : null,
-                          foregroundImage:
-                              _image != null ? FileImage(_image!) : null,
-                          child: _image != null
-                              ? Text(
-                                  widget.initials,
-                                  style: TextStyle(fontSize: 48),
-                                )
-                              : null),
-                    )),
+                      child: GestureDetector(
+                        onTap: () async {
+                          final imageHelper = ImageHelper();
+                          final files = await imageHelper.pickImage();
+                          if (files != null) {
+                            setState(() {
+                              _image = File(files.path);
+                            });
+                            profileProvider.setImagePath(files.path);
+                          }
+                        },
+                        child: Stack(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: Colors.grey.shade300,
+                              radius: 64,
+                              backgroundImage:
+                                  _image != null ? FileImage(_image!) : null,
+                              foregroundImage:
+                                  _image != null ? FileImage(_image!) : null,
+                              child: _image == null
+                                  ? Text(
+                                      widget.initials,
+                                      style: TextStyle(fontSize: 48),
+                                    )
+                                  : null,
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                ),
+                                child: Icon(
+                                  Icons.camera_alt,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                     SizedBox(
                       height: 16,
                     ),
                     TextButton(
                       onPressed: () async {
-                        final imageHelper =
-                            ImageHelper(); // Buat instance ImageHelper
+                        final imageHelper = ImageHelper();
                         final files = await imageHelper.pickImage();
-                        // Panggil metode pickImage
                         if (files != null) {
                           setState(() {
                             _image = File(files.path);
                           });
+                          profileProvider.setImagePath(files.path);
                         }
                       },
                       child: Center(
-                          child: Text(
-                        "Select Photo",
-                        style: TextStyle(color: Colors.black),
-                      )),
+                        child: Text(
+                          "Select Photo",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
                     ),
-
                     SizedBox(
                       height: 20,
                     ),

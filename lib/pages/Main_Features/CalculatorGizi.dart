@@ -106,7 +106,7 @@ class _CalculatorgiziState extends State<Calculatorgizi> {
                   Container(
                     width: 360,
                     height: 50,
-                    margin: EdgeInsets.only(left: 25),
+                    margin: EdgeInsets.only(left: 20,right: 20),
                     decoration: BoxDecoration(
                         color: Color.fromARGB(248, 244, 114, 181),
                         borderRadius: BorderRadius.circular(8)),

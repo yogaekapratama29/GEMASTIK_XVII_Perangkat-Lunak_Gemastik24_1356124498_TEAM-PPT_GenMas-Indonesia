@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:aplikasi_wisata/Profile%20Provider/profile_provider.dart';
 import 'package:aplikasi_wisata/pages/Main_Features/CalculatorGizi.dart';
 import 'package:aplikasi_wisata/pages/Main_Features/Pusat_Bantuan.dart';
 import 'package:aplikasi_wisata/pages/Menu/Akun.dart';
@@ -9,25 +12,27 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:provider/provider.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
-  
 
   @override
   State<Homepage> createState() => _HomepageState();
 }
 
-
 class _HomepageState extends State<Homepage> {
   int _selectedIndex = 0;
-  
+
+
   final List<Widget> _pages = [
     Homepage(),
     Newspage(),
     TambahAnak(),
     Rekap(),
-    Akun(initials: "AK",),
+    Akun(
+      initials: "AK",
+    ),
   ];
 
   void _onItemTapped(int index) {
@@ -40,10 +45,10 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    final profileProvider = Provider.of<ProfileProvider>(context);
+    return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
           height: 75.0,
           backgroundColor: Color.fromARGB(248, 255, 255, 255),
@@ -52,31 +57,41 @@ class _HomepageState extends State<Homepage> {
           index: _selectedIndex,
           onTap: _onItemTapped,
           items: [
-             Icon(
-            Icons.home,
-            color: _selectedIndex == 0 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            Icons.newspaper_outlined,
-            color: _selectedIndex == 1 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            MdiIcons.plusCircle,
-            color: _selectedIndex == 2 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 50,
-          ),
-          Icon(
-            Icons.history,
-            color: _selectedIndex == 3 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
-          Icon(
-            Icons.person,
-            color: _selectedIndex == 4 ? const Color.fromARGB(255, 255, 255, 255) : Colors.white,
-            size: 40,
-          ),
+            Icon(
+              Icons.home,
+              color: _selectedIndex == 0
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              Icons.newspaper_outlined,
+              color: _selectedIndex == 1
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              MdiIcons.plusCircle,
+              color: _selectedIndex == 2
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 50,
+            ),
+            Icon(
+              Icons.history,
+              color: _selectedIndex == 3
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
+            Icon(
+              Icons.person,
+              color: _selectedIndex == 4
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.white,
+              size: 40,
+            ),
           ]),
       body: Stack(
         children: [
@@ -97,15 +112,15 @@ class _HomepageState extends State<Homepage> {
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             )),
                         Spacer(),
-                         Container(margin: EdgeInsets.only(right: 20,top: 20),
-                           child: FittedBox(
-                                                 fit: BoxFit.contain,
-                                                 child: CircleAvatar(
-                            backgroundColor: Colors.grey.shade300,
-                            radius: 35,
-                                                 )
-                                               ),
-                         ),
+                        Container(
+                          margin: EdgeInsets.only(right: 20, top: 20),
+                          child: FittedBox(
+                              fit: BoxFit.contain,
+                              child: CircleAvatar(
+                                backgroundColor: Colors.grey.shade300,
+                                radius: 35,backgroundImage: profileProvider.imagePath.isNotEmpty ? FileImage(File(profileProvider.imagePath)) : null
+                              )),
+                        ),
                       ],
                     ),
                     // Menu Section
@@ -132,8 +147,10 @@ class _HomepageState extends State<Homepage> {
                                   margin: EdgeInsets.only(left: 30),
                                   height: 60,
                                   width: 60,
-                                  decoration: BoxDecoration(color:
-                                      const Color.fromARGB(255, 255, 255, 255),borderRadius: BorderRadius.circular(10)),
+                                  decoration: BoxDecoration(
+                                      color: const Color.fromARGB(
+                                          255, 255, 255, 255),
+                                      borderRadius: BorderRadius.circular(10)),
                                   child: Icon(
                                     MdiIcons.calculator,
                                     color: Color.fromARGB(248, 244, 114, 181),
@@ -153,8 +170,10 @@ class _HomepageState extends State<Homepage> {
                                 child: Container(
                                   height: 60,
                                   width: 60,
-                                  decoration: BoxDecoration(color:
-                                      const Color.fromARGB(255, 255, 255, 255),borderRadius: BorderRadius.circular(10)),
+                                  decoration: BoxDecoration(
+                                      color: const Color.fromARGB(
+                                          255, 255, 255, 255),
+                                      borderRadius: BorderRadius.circular(10)),
                                   child: Icon(
                                     MdiIcons.mapOutline,
                                     color: Color.fromARGB(248, 244, 114, 181),
@@ -175,8 +194,10 @@ class _HomepageState extends State<Homepage> {
                                   margin: EdgeInsets.only(right: 30),
                                   height: 60,
                                   width: 60,
-                                 decoration: BoxDecoration(color:
-                                      const Color.fromARGB(255, 255, 255, 255),borderRadius: BorderRadius.circular(10)),
+                                  decoration: BoxDecoration(
+                                      color: const Color.fromARGB(
+                                          255, 255, 255, 255),
+                                      borderRadius: BorderRadius.circular(10)),
                                   child: Icon(
                                     MdiIcons.faceAgent,
                                     color: Color.fromARGB(248, 244, 114, 181),
