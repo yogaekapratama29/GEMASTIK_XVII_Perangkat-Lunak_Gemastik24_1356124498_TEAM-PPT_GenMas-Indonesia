@@ -115,7 +115,7 @@ class _TambahAnakState extends State<TambahAnak> {
             Container(
               width: 360,
               height: 50,
-              margin: EdgeInsets.only(left: 20),
+              margin: EdgeInsets.only(left: 20,right: 20),
               child: TextFormField(
                 controller: tambahNikController,
                 validator: (value) {
@@ -143,7 +143,7 @@ class _TambahAnakState extends State<TambahAnak> {
             Container(
               width: 360,
               height: 50,
-              margin: EdgeInsets.only(left: 20),
+              margin: EdgeInsets.only(left: 20,right: 20),
               child: TextFormField(
                 controller: tambahNamaAnakController,
                 validator: (value) {
@@ -171,7 +171,7 @@ class _TambahAnakState extends State<TambahAnak> {
             Container(
               width: 360,
               height: 50,
-              margin: EdgeInsets.only(left: 20),
+              margin: EdgeInsets.only(left: 20,right: 20),
               child: TextFormField(
                 controller: tambahTTLController,
                 validator: (value) {
@@ -199,7 +199,7 @@ class _TambahAnakState extends State<TambahAnak> {
             Container(
               width: 360,
               height: 50,
-              margin: EdgeInsets.only(left: 20),
+              margin: EdgeInsets.only(left: 20,right: 20),
               child: TextFormField(
                 controller: tambahNamaIbuController,
                 validator: (value) {
@@ -225,31 +225,33 @@ class _TambahAnakState extends State<TambahAnak> {
               height: 20,
             ),
             Center(
-              child: SizedBox(
-                width: 360,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(
-                          248,
-                          244,
-                          114,
-                          181,
-                        ),
-                        foregroundColor: Colors.white),
-                    onPressed: () {
-                      if (_formState.currentState!.validate()) {
-                        // Tampilkan pesan berhasil jika semua input valid
-                        Flush.showFlushBar(context, "Berhasil", "Data berhasil ditambahkan", Colors.green);
-                      } else {
-                        // Tampilkan pesan kesalahan jika ada input yang tidak valid
-                        Flush.showFlushBar(context, "Gagal", "Mohon isi semua kolom", Colors.red);
-                      }
-                    },
-                    child: Text(
-                      "Tambahkan",
-                      style: GoogleFonts.poppins(
-                          fontSize: 20, fontWeight: FontWeight.w500),
-                    )),
+              child: Container(margin: EdgeInsets.only(left: 20,right: 20),
+                child: SizedBox(
+                  width: 360,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(
+                            248,
+                            244,
+                            114,
+                            181,
+                          ),
+                          foregroundColor: Colors.white),
+                      onPressed: () {
+                        if (_formState.currentState!.validate()) {
+                          // Tampilkan pesan berhasil jika semua input valid
+                          Flush.showFlushBar(context, "Berhasil", "Data berhasil ditambahkan", Colors.green);
+                        } else {
+                          // Tampilkan pesan kesalahan jika ada input yang tidak valid
+                          Flush.showFlushBar(context, "Gagal", "Mohon isi semua kolom", Colors.red);
+                        }
+                      },
+                      child: Text(
+                        "Tambahkan",
+                        style: GoogleFonts.poppins(
+                            fontSize: 20, fontWeight: FontWeight.w500),
+                      )),
+                ),
               ),
             ),
           ],

@@ -5,7 +5,8 @@ import 'package:aplikasi_wisata/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(ChangeNotifierProvider(create: (_) => ProfileProvider(),child:  MyApp()));
+void main() => runApp(
+    ChangeNotifierProvider(create: (_) => ProfileProvider(), child: MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

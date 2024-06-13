@@ -207,7 +207,7 @@ class _AkunState extends State<Akun> {
                             width: 1.0,
                             color: const Color.fromARGB(255, 0, 0, 0)),
                       )),
-                      margin: EdgeInsets.only(left: 20, top: 20),
+                      margin: EdgeInsets.only(left: 20, top: 20,right: 25),
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -228,7 +228,7 @@ class _AkunState extends State<Akun> {
                             width: 1.0,
                             color: const Color.fromARGB(255, 0, 0, 0)),
                       )),
-                      margin: EdgeInsets.only(left: 20, top: 20),
+                      margin: EdgeInsets.only(left: 20, top: 20,right: 25),
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -249,7 +249,7 @@ class _AkunState extends State<Akun> {
                             width: 1.0,
                             color: const Color.fromARGB(255, 0, 0, 0)),
                       )),
-                      margin: EdgeInsets.only(left: 20, top: 20),
+                      margin: EdgeInsets.only(left: 20, top: 20,right: 25),
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -270,7 +270,7 @@ class _AkunState extends State<Akun> {
                             width: 1.0,
                             color: const Color.fromARGB(255, 0, 0, 0)),
                       )),
-                      margin: EdgeInsets.only(left: 20, top: 20),
+                      margin: EdgeInsets.only(left: 20, top: 20,right: 25),
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -291,7 +291,7 @@ class _AkunState extends State<Akun> {
                             width: 1.0,
                             color: const Color.fromARGB(255, 0, 0, 0)),
                       )),
-                      margin: EdgeInsets.only(left: 20, top: 20),
+                      margin: EdgeInsets.only(left: 20, top: 20,right: 25),
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -312,7 +312,7 @@ class _AkunState extends State<Akun> {
                             width: 1.0,
                             color: const Color.fromARGB(255, 0, 0, 0)),
                       )),
-                      margin: EdgeInsets.only(left: 20, top: 20),
+                      margin: EdgeInsets.only(left: 20, top: 20,right: 25),
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -372,21 +372,23 @@ class _AkunState extends State<Akun> {
                           );
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
-                        child: Container(
-                          height: 50,
-                          margin: EdgeInsets.only(right: 10),
-                          width: 360,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                                color: const Color.fromARGB(78, 178, 174, 174)),
-                            color: Color.fromARGB(255, 220, 38, 38),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Keluar",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 20, color: Colors.white),
+                        child: Center(
+                          child: Container(
+                            height: 50,
+                            margin: EdgeInsets.only(right: 10,left: 10),
+                            width: 360,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                  color: const Color.fromARGB(78, 178, 174, 174)),
+                              color: Color.fromARGB(255, 220, 38, 38),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Keluar",
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20, color: Colors.white),
+                              ),
                             ),
                           ),
                         ),
@@ -397,7 +399,7 @@ class _AkunState extends State<Akun> {
                     ),
                     Container(
                       height: 100,
-                      child: Center(child: Text("Version 1.0")),
+                      child: Center(child: Text("Versi Beta 1.0")),
                     ),
                   ],
                 )

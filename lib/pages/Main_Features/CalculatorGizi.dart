@@ -103,29 +103,31 @@ class _CalculatorgiziState extends State<Calculatorgizi> {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    width: 360,
-                    height: 50,
-                    margin: EdgeInsets.only(left: 20,right: 20),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(248, 244, 114, 181),
-                        borderRadius: BorderRadius.circular(8)),
-                    child: TextField(
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.search,
-                            color: Colors.white,
-                          ),
-                          labelStyle: TextStyle(
-                            color: Color.fromARGB(185, 255, 255, 255),
-                          ),
-                          labelText: "Mau Cari Informasi Makanan Apa?",
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(78, 255, 255, 255),
-                                width: 1),
-                          )),
+                  Center(
+                    child: Container(margin: EdgeInsets.only(left: 10,right: 10),
+                      width: 360,
+                      height: 50,
+                      
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(248, 244, 114, 181),
+                          borderRadius: BorderRadius.circular(8)),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.search,
+                              color: Colors.white,
+                            ),
+                            labelStyle: TextStyle(
+                              color: Color.fromARGB(185, 255, 255, 255),
+                            ),
+                            labelText: "Mau Cari Informasi Makanan Apa?",
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                  color: Color.fromARGB(78, 255, 255, 255),
+                                  width: 1),
+                            )),
+                      ),
                     ),
                   ),
                   SizedBox(

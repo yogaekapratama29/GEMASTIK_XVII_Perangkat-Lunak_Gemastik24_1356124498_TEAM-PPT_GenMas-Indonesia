@@ -123,7 +123,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                 Container(
                   width: 360,
                   height: 50,
-                  margin: EdgeInsets.only(left: 20),
+                  margin: EdgeInsets.only(left: 20,right: 20),
                   child: TextFormField(
                     controller: alamatController,
                     validator: (value) {
@@ -151,7 +151,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                 Container(
                   width: 360,
                   height: 50,
-                  margin: EdgeInsets.only(left: 20),
+                  margin: EdgeInsets.only(left: 20,right: 20),
                   child: TextFormField(
                     controller: kecamatanController,
                     validator: (value) {
@@ -179,7 +179,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                 Container(
                   width: 360,
                   height: 50,
-                  margin: EdgeInsets.only(left: 20),
+                  margin: EdgeInsets.only(left: 20,right: 20),
                   child: TextFormField(
                     controller: kabupatenController,
                     validator: (value) {
@@ -207,7 +207,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                 Container(
                   width: 360,
                   height: 50,
-                  margin: EdgeInsets.only(left: 20),
+                  margin: EdgeInsets.only(left: 20,right: 20),
                   child: TextFormField(
                     controller: posyanduController,
                     validator: (value) {
@@ -235,7 +235,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                 Container(
                   width: 360,
                   height: 50,
-                  margin: EdgeInsets.only(left: 20),
+                  margin: EdgeInsets.only(left: 20,right: 20),
                   child: TextFormField(
                     controller: pilihNamaAnakController,
                     validator: (value) {
@@ -263,7 +263,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                 Container(
                   width: 360,
                   height: 50,
-                  margin: EdgeInsets.only(left: 20),
+                  margin: EdgeInsets.only(left: 20,right: 20),
                   child: TextFormField(
                     controller: nikController,
                     validator: (value) {
@@ -291,7 +291,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                 Container(
                   width: 360,
                   height: 50,
-                  margin: EdgeInsets.only(left: 20),
+                  margin: EdgeInsets.only(left: 20,right: 20),
                   child: TextFormField(
                     controller: namaAnakController,
                     validator: (value) {
@@ -319,7 +319,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                 Container(
                   width: 360,
                   height: 50,
-                  margin: EdgeInsets.only(left: 20),
+                  margin: EdgeInsets.only(left: 20,right: 20),
                   child: TextFormField(
                     controller: tempatLahirController,
                     validator: (value) {
@@ -347,7 +347,7 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                 Container(
                   width: 360,
                   height: 50,
-                  margin: EdgeInsets.only(left: 20),
+                  margin: EdgeInsets.only(left: 20,right: 20),
                   child: TextFormField(
                     controller: namaIbuController,
                     validator: (value) {
@@ -373,31 +373,33 @@ class _FormpendaftaranState extends State<Formpendaftaran> {
                   height: 20,
                 ),
                 Center(
-                  child: SizedBox(
-                    width: 360,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(
-                              248,
-                              244,
-                              114,
-                              181,
-                            ),
-                            foregroundColor: Colors.white),
-                        onPressed: () {
-                          if (_formState.currentState!.validate()) {
-                            // Tampilkan pesan berhasil jika semua input valid
-                            Flush.showFlushBar(context, "Berhasil", "Data berhasil ditambahkan", Colors.green);
-                          } else {
-                            // Tampilkan pesan kesalahan jika ada input yang tidak valid
-                            Flush.showFlushBar(context, "Gagal", "Mohon isi semua kolom", Colors.red);
-                          }
-                        },
-                        child: Text(
-                          "Daftar",
-                          style: GoogleFonts.poppins(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        )),
+                  child: Container(margin: EdgeInsets.only(left: 10,right: 10),
+                    child: SizedBox(
+                      width: 360,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Color.fromARGB(
+                                248,
+                                244,
+                                114,
+                                181,
+                              ),
+                              foregroundColor: Colors.white),
+                          onPressed: () {
+                            if (_formState.currentState!.validate()) {
+                              // Tampilkan pesan berhasil jika semua input valid
+                              Flush.showFlushBar(context, "Berhasil", "Data berhasil ditambahkan", Colors.green);
+                            } else {
+                              // Tampilkan pesan kesalahan jika ada input yang tidak valid
+                              Flush.showFlushBar(context, "Gagal", "Mohon isi semua kolom", Colors.red);
+                            }
+                          },
+                          child: Text(
+                            "Daftar",
+                            style: GoogleFonts.poppins(
+                                fontSize: 20, fontWeight: FontWeight.w500),
+                          )),
+                    ),
                   ),
                 ),
                 SizedBox(
