@@ -1,4 +1,4 @@
-# aplikasi_wisata
+# GenMas Indonesia
 
 A new Flutter project.
 
